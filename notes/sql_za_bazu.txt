@@ -1,0 +1,78 @@
+-- Kreiranje baze podataka
+CREATE DATABASE cost;
+
+-- Koristimo bazu podataka cost
+USE cost;
+
+-- Tabela za korisnike
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) NOT NULL,
+    password VARCHAR(255),
+    first_name VARCHAR(100),
+    last_name VARCHAR(100),
+    phone VARCHAR(20),
+    address VARCHAR(255),
+    role ENUM('guest', 'member', 'admin', 'sys_admin') NOT NULL DEFAULT 'guest',
+    household_id INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- Tabela za domaćinstva
+CREATE TABLE households (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    admin_id INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- Tabela za troškove
+CREATE TABLE expenses (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    household_id INT NOT NULL,
+    user_id INT NOT NULL,
+    category_id INT NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    amount DECIMAL(10, 2) NOT NULL,
+    description TEXT,
+    date DATE DEFAULT CURRENT_DATE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- Tabela za kategorije troškova
+CREATE TABLE categories (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    household_id INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- Tabela za evidenciju logovanja korisnika
+CREATE TABLE login_stats (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    login_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ip_address VARCHAR(45)
+);
+
+-- Tabela za povezivanje članova sa domaćinstvima
+CREATE TABLE household_members (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    household_id INT NOT NULL,
+    user_id INT NOT NULL,
+    invitation_sent_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    invitation_accepted_at TIMESTAMP
+);
+
+-- Dodavanje Sys Admin-a
+-- password prekopirati kada se napravi neki user : )
+INSERT INTO users (email, password, first_name, last_name, phone, address, role, household_id)
+VALUES
+('admin@admin.com', 'test', 'Admin', '', '+1234567890', '123 Admin Street', 'sys_admin', NULL);
+
+
+-- /includes/config.php

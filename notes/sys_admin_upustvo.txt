@@ -1,0 +1,39 @@
+SYS Admin
+// Kreiranje admina
+// kroz bazu : )
+// potrebno kreirati jednog admina
+// kopirati njegov password i staviti isti za sys_admin-a // hacks
+
+Login -> Dashboard
+../sys_admin_dashboard.php
+
+Prikazivanje svih korisnika i domaćinstava
+1. Prikazivanje svih korisnika i domaćinstava -> ../list_all.php
+
+Pregled statistike logovanja usera
+2. Pregled statistike logovanja usera -> ../login_stats.php
+
+Dodavanje Troška:
+- Nije moguće
+
+Pregled Troškova
+- Nije moguće
+
+Izmjena profilnih podataka
+- Nije moguće
+
+Odjava
+1. Odjava (header) -> ../logout.php
+
+
+
+
+
+
+
+
+
+
+
+
+

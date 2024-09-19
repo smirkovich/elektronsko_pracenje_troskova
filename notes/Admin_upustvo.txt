@@ -1,0 +1,54 @@
+Admin
+// Kreiranje admina
+1. http://localhost/WP_03_elektronsko_pracenje_troskova/index.php
+2. Registracija -> ../register.php
+3. Ime, prezime, email adresa, Lozinka
+4. Registruj se -> ../login.php
+5. email, lozinka
+6. Prijavi se -> ../dashboard.php
+
+Dashboard
+// nema domacinstva - novi user
+Kreiranje domaćinstva
+1. Kreiraj domaćinstvo -> ../create_household.php
+2. Kreiraj Domaćinstvo -> ../dashboard.php
+
+Dodavanje novih članova domaćinstva:
+1. Dodaj Članove domaćinstva -> ../send_invitation.php
+2. Pošalji pozivnice -> ../send_invitation.php
+// trenutno radi tako sto se user kojem je pozivnica poslata
+// moze da se registruje preko svog email-a (../register.php)
+// sistem ce poznati taj email i 
+// registrovati ga pod tim domacinstvom od ovog Admina
+
+Dodavanje kategorija:
+1. Upravljaj Kategorijama -> ../manage_categories.php
+2. Kreiraj Kategoriju
+
+Dodavanje Troška:
+1. Unesi trošak -> ../add_expense.php
+2. Dodaj trošak -> ../view_expenses.php
+
+Pregled Troškova
+1. Pogledaj Troškove -> ../view_expenses.php
+
+Izmjena profilnih podataka
+1. Klik na ime (header) -> ../update_profile.php
+2. Ažuriraj Profil -> ../update_profile.php
+// fali JS za osvjezavanje stranice kada se azurira
+
+Odjava
+1. Odjava (header) -> ../logout.php
+
+
+
+
+
+
+
+
+
+
+
+
+

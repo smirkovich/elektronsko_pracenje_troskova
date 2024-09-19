@@ -1,0 +1,39 @@
+Member
+// Kreiranje member-a (član domaćinstva)
+// pretpostavimo da je user dobio email sa linkom za aktivaciju
+// u bazi vec postoji poveznica izmedju ovog usera (email) i domacinstva kome pripada
+// kada se korisnik registruje, popunice se ostala polja u bazi
+// login prije aktivacije nije moguć
+
+1. http://localhost/WP_03_elektronsko_pracenje_troskova/index.php
+2. Registracija -> ../register.php
+3. Ime, prezime, email adresa, Lozinka
+4. Registruj se -> ../login.php
+5. email, lozinka
+6. Prijavi se -> ../dashboard.php
+
+Dashboard
+Dodavanje Troška:
+1. Unesi trošak -> ../add_expense.php
+2. Dodaj trošak -> ../view_expenses.php
+
+Pregled Troškova
+1. Pogledaj Troškove -> ../view_expenses.php
+
+Odjava
+1. Odjava (header) -> ../logout.php
+
+Izmjena profilnih podataka
+- nije moguca
+
+
+
+
+
+
+
+
+
+
+
+

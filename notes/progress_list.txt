@@ -1,0 +1,55 @@
+
+Cilj projekta je da se kreira web aplikacija-sajt za praćenje mesečnih troškova u okviru jednog domaćinstva. Aplikacija razlikuje četiri nivoa pristupa: 
+gost, registrovan/prijavljen korisnik-član domaćinstva, 
+registrovan/prijavljen korisnik-administrator domaćinstva i administrator
+sistema.
+
+- [x] Gost
+- [x] • može da pogleda ponuđene informacije na sajtu
+- [x] • može da izvrši registraciju na sajtu
+
+//ADMIN
+- [x] Registrovan/prijavljen korisnik-administrator domaćinstva
+- [x] • može da kreira domaćinstvo
+- [x] • može da šalje poziv članovima domaćinstva da se registruju
+- [x] • može da promeni svoje profilne podatke (lozinka, ime, prezime, broj telefona, adresu, naziv domaćinstva)
+- [x] • može da unosi troškove
+- [x] • može da pregleda troškove svog domaćinstva
+- [x] • može da kreira, menja i briše kategorije troškova (na primer: struja, hrana, obuća...)
+- [x] • može da zahteva promenu lozinke (zaboravljena lozinka)
+
+//MEMBER
+- [x] Registrovan/prijavljen korisnik-član domaćinstva
+- [x] • može da unosi troškove
+- [x] • može da pregleda troškove svog domaćinstva
+- [ ] • može da zahteva promenu lozinke (zaboravljena lozinka)
+
+//SYS_ADMIN
+- [x] Super - Administrator
+- [x] • može da pregleda sve korisnike i domaćinstva
+- [x] • može da pregleda statistiku logovanja korisnika na sistem
+- [x] • nema uvid u zapise o troškovima domaćinstva
+
+ADMIN
+- [ ] Registraciju korisnika mora biti urađena na bezbedan način i obaveznim slanjem aktivacionog
+linka putem e-maila. 
+- [ ] Slanje linka koristiti i kod zahteva za promenu lozinke. 
+- [x] Ne sme sedozvoliti registracija više korisničkih naloga sa istom e-mail adresom. E-mail adresa mora biti jedinstvena i ona predstavlja korisničko ime.
+
+- [x]  Prijavljeni korisnik kreira domaćinstvo unošenjem imena domaćinstva (samo admin). 
+- [ ]  Nakon toga ima mogućnost da šalje putem e-maila poziv za registraciju ostalim članovima domaćinstva. 
+- [ ]  U e-mailu je potrebno da se nalazi podatak koji će biti jednoznačan za domaćinstvo (na primer id domaćinstva) i da se na osnovu njega zna za koje domaćinstvo se registruje korisnik.
+
+MEMBER
+- [x]  Prijavljeni korisnici odabirom kategorije troškova mogu dodati trošak. 
+- [x]  Svaki unos treba da sadrži naziv, količinu troška, opis troška, datum unosa i informaciju o članu domaćinstva koji je unos izvršio. Datum treba da se automatski unosi.
+- [x] Članovi domaćinstva treba da imaju jasno prikazanu informaciju o ukupnim troškovima kao i o iznosu troškova za aktuelni mesec. 
+- [x] Pored toga potrebno je izdvojiti tri kategorije sa najviše ukupnih troškova.
+
+- [ ] Odabirom kategorija i/ili vremenskog opsega članovi domaćinstva mogu pogledati sve troškove i informacija o njima.
+- [x] Potrebno je omogućiti sortiranje prikaza troškova po nazivu kategorije ipo najvećoj odnosno najmanjoj količini troškova.
+
+- [x] Administratorski deo zaštiti upotrebom sesija (PHP). Sve korisničke lozinke „hešovati“ bcrypt
+algoritmom.
+- [x] Kreirati bazu podataka pod imenom cost i unutar nje tabele koje će zadovoljiti sve
+funkcionalnosti projekta.
