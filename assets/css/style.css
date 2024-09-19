@@ -1,0 +1,29 @@
+/* Osiguravanje da body zauzima celu visinu prozora */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Flexbox za glavni sadržaj */
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Glavni sadržaj zauzima preostalu visinu */
+.container {
+    flex: 1;
+}
+
+/* Footer uvek na dnu */
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #eaeaea;
+}
