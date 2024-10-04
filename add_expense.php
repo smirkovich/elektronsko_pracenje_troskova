@@ -92,7 +92,7 @@ $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
     <?php endif; ?>
 
-    <form action="add_expense.php" method="POST">
+    <form action="add_expense.php" method="POST" id="expenseForm" onsubmit="return validateForm('expenseForm');">
         <div class="mb-3">
             <label for="category_id" class="form-label">Kategorija</label>
             <select class="form-select" id="category_id" name="category_id" required>

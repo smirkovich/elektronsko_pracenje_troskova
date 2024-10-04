@@ -69,7 +69,6 @@ if ($result) {
 }
 ?>
 
-
 <?php include 'templates/header.php'; ?>
 
 <div class="container">
@@ -82,8 +81,8 @@ if ($result) {
         </div>
     <?php endif; ?>
 
-    <h3>Ukupni troškovi domaćinstva: <?php echo htmlspecialchars($total_expenses); ?> RSD</h3>
-    <h3>Troškovi za tekući mesec: <?php echo htmlspecialchars($monthly_expenses); ?> RSD</h3>
+    <h3>Ukupni troškovi domaćinstva: <span id="totalExpenses"><?php echo htmlspecialchars($total_expenses); ?> RSD</span></h3>
+    <h3>Troškovi za tekući mesec: <span id="currentMonthExpenses"><?php echo htmlspecialchars($monthly_expenses); ?> RSD</span></h3>
 
     <h3>Tri kategorije sa najviše troškova:</h3>
     <ul>
@@ -91,6 +90,10 @@ if ($result) {
             <li><?php echo htmlspecialchars($category['category_name']) . ': ' . htmlspecialchars($category['total_amount']) . ' RSD'; ?></li>
         <?php endforeach; ?>
     </ul>
+
+    <!-- Dodaj grafikon troškova -->
+    <h3>Grafikon troškova:</h3>
+    <canvas id="expensesChart" width="400" height="100"></canvas>
 
     <h3>Detalji svih troškova:</h3>
     <table class="table table-striped">
@@ -104,7 +107,7 @@ if ($result) {
             <th>Korisnik</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody id="expenseTableBody">
         <?php foreach ($expenses as $expense): ?>
             <tr>
                 <td><?php echo htmlspecialchars($expense['name']); ?></td>
@@ -117,6 +120,21 @@ if ($result) {
         <?php endforeach; ?>
         </tbody>
     </table>
+
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="assets/js/script.js"></script>
+
+<script>
+    // Popunjavanje grafikona sa PHP podacima
+    const labels = <?php echo json_encode(array_column($top_categories, 'category_name')); ?>;
+    const data = <?php echo json_encode(array_column($top_categories, 'total_amount')); ?>;
+    renderExpenseChart(labels, data);
+
+    // Popunjavanje ukupnih troškova
+    const expenses = <?php echo json_encode($expenses); ?>;
+    calculateTotalExpenses(expenses);
+</script>
 
 <?php include 'templates/footer.php'; ?>
